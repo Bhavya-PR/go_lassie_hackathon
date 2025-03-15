@@ -61,34 +61,34 @@ Make sure you have the following installed:
 
 ## Project Structure
 golassie-hackathon/<br>
-│── client/                       # Frontend (React)<br>
-│   │── public/                   # Static assets<br>
-│   │── src/                      # React app source code<br>
-│   │   ├── components/           # UI components<br>
-│   │   ├── pages/                # Page components<br>
-│   │   ├── App.jsx               # Main app component<br>
-│   │   ├── main.jsx              # React entry point (router setup)<br>
-│   │   ├── index.css             # Global styles (Tailwind)<br>
-│   │── package.json              # Frontend dependencies<br>
-│   │── vite.config.js            # Vite config<br>
+│── client/                       <br>
+│   │── public/                   <br>
+│   │── src/                      <br>
+│   │   ├── components/           <br>
+│   │   ├── pages/                <br>
+│   │   ├── App.jsx               <br>
+│   │   ├── main.jsx              <br>
+│   │   ├── index.css             <br>
+│   │── package.json              <br>
+│   │── vite.config.js            <br>
 │<br>
-│── server/                       # Backend (Node.js, Express)<br>
-│   │── config/                   # Database configuration<br>
-│   │   ├── db.js                 # SQLite connection setup<br>
-│   │── routes/                   # API routes<br>
-│   │   ├── payers.js             # Payer API routes<br>
-│   │   ├── admin.js              # Admin API routes<br>
-│   │── database/                 # Database & migration scripts<br>
-│   │   ├── payerDB.sqlite        # SQLite database file<br>
-│   │   ├── schema.sql            # Database schema<br>
-│   │   ├── importPayers.js       # Import payers from Excel<br>
-│   │   ├── deduplicatePayers.js  # Deduplicate payers<br>
-│   │   ├── initDB.js             # Initialize the database<br>
-│   │── index.js                  # Express server<br>
-│   │── package.json              # Backend dependencies<br>
-│── README.md                     # Project documentation<br>
-│── .env                          # Environment variables (database path, port)<br>
-│── Payers.xlsx                   # Sample payer data file<br>
+│── server/                       <br>
+│   │── config/                   <br>
+│   │   ├── db.js                 <br>
+│   │── routes/                   <br>
+│   │   ├── payers.js             <br>
+│   │   ├── admin.js              <br>
+│   │── database/                 <br>
+│   │   ├── payerDB.sqlite        <br>
+│   │   ├── schema.sql            <br>
+│   │   ├── importPayers.js       <br>
+│   │   ├── deduplicatePayers.js  <br>
+│   │   ├── initDB.js             <br>
+│   │── index.js                  <br>
+│   │── package.json              <br>
+│── README.md                     <br>
+│── .env                          <br>
+│── Payers.xlsx                   <br>
 
 
 ## Tech Stack
