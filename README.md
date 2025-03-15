@@ -89,4 +89,3 @@ golassie-hackathon/
 │── README.md                     # Project documentation
 │── .env                          # Environment variables (database path, port)
 │── Payers.xlsx                   # Sample payer data file
-
