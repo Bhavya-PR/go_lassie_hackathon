@@ -11,6 +11,7 @@ const PayerList = () => {
 
   return (
     <div className="p-4">
+        <br />
       <h2 className="text-xl font-semibold mb-4">Payers</h2>
       <ul className="bg-white shadow rounded p-4">
         {payers.map((payer) => (

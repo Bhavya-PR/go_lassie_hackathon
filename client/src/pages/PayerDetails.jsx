@@ -1,4 +1,4 @@
-import PayerDetails from "../components/PayerDetails.jsx";
+import PayerDetails from "../components/PlayerDetails";
 
 const PayerDetailsPage = () => {
   return <PayerDetails />;

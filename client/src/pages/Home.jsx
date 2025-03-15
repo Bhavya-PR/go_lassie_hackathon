@@ -1,5 +1,5 @@
-import PayerList from "../components/PayerList.jsx";
-import SearchBar from "../components/SearchBar.jsx";
+import PayerList from "../components/PlayerList";
+import SearchBar from "../components/SearchBar";
 
 const Home = () => {
   return (
