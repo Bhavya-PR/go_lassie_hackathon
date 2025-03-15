@@ -66,7 +66,7 @@ golassie-hackathon/<br>
 │   │── src/                      <br>
 │   │   ├── components/           <br>
 │   │   ├── pages/                <br>
-|   |   ├── services/             <br>
+│   │   ├── services/             <br>
 │   │   ├── App.jsx               <br>
 │   │   ├── main.jsx              <br>
 │   │   ├── index.css             <br>
