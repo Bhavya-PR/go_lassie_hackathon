@@ -1,28 +1,9 @@
-// Database connection configuration
-const { Sequelize } = require('sequelize');
+const { Pool } = require('pg');
 require('dotenv').config();
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-  dialect: 'postgres',
-  dialectOptions: {
-    ssl: {
-      require: false,
-      rejectUnauthorized: false,
-    },
-  },
-  logging: false, // Set to console.log to see SQL queries
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }, // Required for NeonDB
 });
 
-// Test the connection
-const testConnection = async () => {
-  try {
-    await sequelize.authenticate();
-    console.log('Database connection has been established successfully.');
-    return true;
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-    return false;
-  }
-};
-
-module.exports = { sequelize, testConnection };
+module.exports = pool;
