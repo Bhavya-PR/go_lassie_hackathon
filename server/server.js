@@ -1,53 +1,70 @@
-//Express Server for Dental Insurance Payer Processing System
-
 const express = require('express');
-const path = require('path');
 const cors = require('cors');
-const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
+const morgan = require('morgan');
+const path = require('path');
+require('dotenv').config();
 
-// Load environment variables
-dotenv.config();
+// Import DB connection
+const { sequelize, testConnection } = require('./server/config/db');
 
-// Initialize express app
+// Import models
+const models = require('./server/models');
+
+// Create Express app
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Import database connection
-const db = require('./config/db');
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(morgan('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-// Serve static files from the React frontend app
-app.use(express.static(path.join(__dirname, '../client/build')));
-
-// Import routes
-const routes = require('./routes');
-
-// Register API routes
-app.use('/api', routes);
-
-// For any request that doesn't match API routes, serve the React app
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// Define routes
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'OK', message: 'API is running' });
 });
 
-// Test database connection before starting the server
-(async () => {
-  try {
-    await db.authenticate();
-    console.log('Database connection has been established successfully.');
-    
-    // Start the server
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
-})();
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
-module.exports = app; // For testing purposes
+// Import route files
+const payersRoutes = require('./server/routes/payers');
+const payerGroupsRoutes = require('./server/routes/payerGroups');
+const uploadsRoutes = require('./server/routes/uploads');
+
+// Use routes
+app.use('/api/payers', payersRoutes);
+app.use('/api/groups', payerGroupsRoutes);
+app.use('/api/uploads', uploadsRoutes);
+
+// Setting port
+const PORT = process.env.PORT || 5000;
+
+// Sync database and start server
+const startServer = async () => {
+  try {
+    const isConnected = await testConnection();
+    
+    if (isConnected) {
+      // Sync all models with database
+      await sequelize.sync();
+      console.log('Database synced successfully');
+      
+      app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+      });
+    } else {
+      console.error('Failed to connect to the database. Server not started.');
+    }
+  } catch (error) {
+    console.error('Server startup error:', error);
+  }
+};
+
+startServer();
