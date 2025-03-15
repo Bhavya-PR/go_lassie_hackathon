@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import App from './App';
-import PayerDetails from './PayerDetails';
+import PayerDetails from './pages/PayerDetails';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
