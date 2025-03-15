@@ -1,17 +1,15 @@
-const pool = require('../config/db');
 const fs = require('fs');
 const path = require('path');
+const db = require('../config/db');
 
 const schemaPath = path.join(__dirname, 'schema.sql');
-const schema = fs.readFileSync(schemaPath, 'utf8');
+const schemaSQL = fs.readFileSync(schemaPath, 'utf8');
 
-(async () => {
-  try {
-    await pool.query(schema);
+db.exec(schemaSQL, (err) => {
+  if (err) {
+    console.error('Error initializing database:', err.message);
+  } else {
     console.log('Database initialized successfully');
-    process.exit();
-  } catch (error) {
-    console.error('Error initializing database:', error);
-    process.exit(1);
   }
-})();
+  db.close();
+});
