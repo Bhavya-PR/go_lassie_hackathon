@@ -60,3 +60,33 @@ Make sure you have the following installed:
 - **POST /admin/merge**: Merge selected payers into one (admin functionality).
 
 ## Project Structure
+golassie-hackathon/
+│── client/                       # Frontend (React)
+│   │── public/                   # Static assets
+│   │── src/                      # React app source code
+│   │   ├── components/           # UI components
+│   │   ├── pages/                # Page components
+│   │   ├── App.jsx               # Main app component
+│   │   ├── main.jsx              # React entry point (router setup)
+│   │   ├── index.css             # Global styles (Tailwind)
+│   │── package.json              # Frontend dependencies
+│   │── vite.config.js            # Vite config
+│
+│── server/                       # Backend (Node.js, Express)
+│   │── config/                   # Database configuration
+│   │   ├── db.js                 # SQLite connection setup
+│   │── routes/                   # API routes
+│   │   ├── payers.js             # Payer API routes
+│   │   ├── admin.js              # Admin API routes
+│   │── database/                 # Database & migration scripts
+│   │   ├── payerDB.sqlite        # SQLite database file
+│   │   ├── schema.sql            # Database schema
+│   │   ├── importPayers.js       # Import payers from Excel
+│   │   ├── deduplicatePayers.js  # Deduplicate payers
+│   │   ├── initDB.js             # Initialize the database
+│   │── index.js                  # Express server
+│   │── package.json              # Backend dependencies
+│── README.md                     # Project documentation
+│── .env                          # Environment variables (database path, port)
+│── Payers.xlsx                   # Sample payer data file
+
