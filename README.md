@@ -61,7 +61,7 @@ Make sure you have the following installed:
 
 ## Project Structure
 golassie-hackathon/
-│── client/                       # Frontend (React)
+│── client/                       # Frontend (React)<br>
 │   │── public/                   # Static assets
 │   │── src/                      # React app source code
 │   │   ├── components/           # UI components
@@ -89,3 +89,11 @@ golassie-hackathon/
 │── README.md                     # Project documentation
 │── .env                          # Environment variables (database path, port)
 │── Payers.xlsx                   # Sample payer data file
+
+
+## Tech Stack
+- **Frontend**: React, TailwindCSS, Vite
+- **Backend**: Node.js, Express.js, SQLite3, Axios
+
+## License
+This project is licensed under the MIT License.
