@@ -66,11 +66,13 @@ golassie-hackathon/<br>
 │   │── src/                      <br>
 │   │   ├── components/           <br>
 │   │   ├── pages/                <br>
+|   |   ├── services/
 │   │   ├── App.jsx               <br>
 │   │   ├── main.jsx              <br>
 │   │   ├── index.css             <br>
 │   │── package.json              <br>
 │   │── vite.config.js            <br>
+│   │── index.html                <br>
 │<br>
 │── server/                       <br>
 │   │── config/                   <br>
