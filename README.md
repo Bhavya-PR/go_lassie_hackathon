@@ -73,22 +73,22 @@ golassie-hackathon/<br>
 │   │── vite.config.js            # Vite config<br>
 │<br>
 │── server/                       # Backend (Node.js, Express)<br>
-│   │── config/                   # Database configuration
-│   │   ├── db.js                 # SQLite connection setup
-│   │── routes/                   # API routes
-│   │   ├── payers.js             # Payer API routes
-│   │   ├── admin.js              # Admin API routes
-│   │── database/                 # Database & migration scripts
-│   │   ├── payerDB.sqlite        # SQLite database file
-│   │   ├── schema.sql            # Database schema
-│   │   ├── importPayers.js       # Import payers from Excel
-│   │   ├── deduplicatePayers.js  # Deduplicate payers
-│   │   ├── initDB.js             # Initialize the database
-│   │── index.js                  # Express server
-│   │── package.json              # Backend dependencies
-│── README.md                     # Project documentation
-│── .env                          # Environment variables (database path, port)
-│── Payers.xlsx                   # Sample payer data file
+│   │── config/                   # Database configuration<br>
+│   │   ├── db.js                 # SQLite connection setup<br>
+│   │── routes/                   # API routes<br>
+│   │   ├── payers.js             # Payer API routes<br>
+│   │   ├── admin.js              # Admin API routes<br>
+│   │── database/                 # Database & migration scripts<br>
+│   │   ├── payerDB.sqlite        # SQLite database file<br>
+│   │   ├── schema.sql            # Database schema<br>
+│   │   ├── importPayers.js       # Import payers from Excel<br>
+│   │   ├── deduplicatePayers.js  # Deduplicate payers<br>
+│   │   ├── initDB.js             # Initialize the database<br>
+│   │── index.js                  # Express server<br>
+│   │── package.json              # Backend dependencies<br>
+│── README.md                     # Project documentation<br>
+│── .env                          # Environment variables (database path, port)<br>
+│── Payers.xlsx                   # Sample payer data file<br>
 
 
 ## Tech Stack
