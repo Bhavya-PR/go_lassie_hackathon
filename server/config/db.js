@@ -1,37 +1,23 @@
+// Database connection configuration
 const { Sequelize } = require('sequelize');
-const dotenv = require('dotenv');
+require('dotenv').config();
 
-// Load environment variables
-dotenv.config();
-
-// Get database connection string from environment variables
-const dbConnectionString = process.env.DATABASE_URL;
-
-// Create Sequelize instance
-const sequelize = new Sequelize(dbConnectionString, {
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
   dialectOptions: {
     ssl: {
-      require: true,
-      rejectUnauthorized: false  // Important for some hosted PostgreSQL providers
-    }
+      require: false,
+      rejectUnauthorized: false,
+    },
   },
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000
-  },
-  logging: false  // Set to console.log to see SQL queries in console
+  logging: false, // Set to console.log to see SQL queries
 });
 
-/**
- * Test database connection
- * @returns {Promise<boolean>} True if connected, false otherwise
- */
+// Test the connection
 const testConnection = async () => {
   try {
     await sequelize.authenticate();
+    console.log('Database connection has been established successfully.');
     return true;
   } catch (error) {
     console.error('Unable to connect to the database:', error);
@@ -39,5 +25,4 @@ const testConnection = async () => {
   }
 };
 
-module.exports = sequelize;
-module.exports.testConnection = testConnection;
+module.exports = { sequelize, testConnection };
