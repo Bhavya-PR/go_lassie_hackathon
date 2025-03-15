@@ -60,19 +60,19 @@ Make sure you have the following installed:
 - **POST /admin/merge**: Merge selected payers into one (admin functionality).
 
 ## Project Structure
-golassie-hackathon/
+golassie-hackathon/<br>
 │── client/                       # Frontend (React)<br>
-│   │── public/                   # Static assets
-│   │── src/                      # React app source code
-│   │   ├── components/           # UI components
-│   │   ├── pages/                # Page components
-│   │   ├── App.jsx               # Main app component
-│   │   ├── main.jsx              # React entry point (router setup)
-│   │   ├── index.css             # Global styles (Tailwind)
-│   │── package.json              # Frontend dependencies
-│   │── vite.config.js            # Vite config
-│
-│── server/                       # Backend (Node.js, Express)
+│   │── public/                   # Static assets<br>
+│   │── src/                      # React app source code<br>
+│   │   ├── components/           # UI components<br>
+│   │   ├── pages/                # Page components<br>
+│   │   ├── App.jsx               # Main app component<br>
+│   │   ├── main.jsx              # React entry point (router setup)<br>
+│   │   ├── index.css             # Global styles (Tailwind)<br>
+│   │── package.json              # Frontend dependencies<br>
+│   │── vite.config.js            # Vite config<br>
+│<br>
+│── server/                       # Backend (Node.js, Express)<br>
 │   │── config/                   # Database configuration
 │   │   ├── db.js                 # SQLite connection setup
 │   │── routes/                   # API routes
